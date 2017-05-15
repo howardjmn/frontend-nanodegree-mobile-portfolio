@@ -50,13 +50,21 @@
         padding: 0 0.5em;
         border-top: 1px solid #ccc;
       }
-      footer span { float: right; font-style: italic; }
+
+
+      img.mobile-screen { display: none; }
+      img.non-mobile-screen { display: initial; }
+
       /* Smartphones (portrait) */
-      @media only screen and (max-width: 480px)
+      @media only screen and (max-width: 580px)
       {
         body { font-size: 12px;}
         header p { padding-left: 4.5em;}
+        img.non-mobile-screen { display: none; }
+        img.mobile-screen { display: initial; }
       }
+
+      footer span { float: right; font-style: italic; }
     </style>
 
     <link href="css/print.css" rel="stylesheet" media="print">
@@ -74,7 +82,7 @@
 
   <body>
     <header>
-      <a href="/"><img src="img/profilepic.jpg"></a>
+      <a href="/"><img src="img/profilepic_mini.jpg"></a>
       <p>Cameron Pittman<br><span>Course Developer</span></p>
     </header>
 
@@ -104,7 +112,8 @@
           </li>
 
           <li>
-            <img style="width: 100px;" src="views/images/pizzeria_non-mobile.jpg">
+            <img src="images/pizzeria_mobile.jpg" class="mobile-screen img-responsive">
+            <img src="images/pizzeria_non-mobile.jpg" class="non-mobile-screen img-responsive">
             <a href="views/pizza.html">Cam's Pizzeria</a>
             <p>Who wants a performant pizza?</p>
           </li>
