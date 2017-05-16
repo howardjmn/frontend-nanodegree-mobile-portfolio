@@ -1,6 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-View the main page in your browser [here](https://rawgit.com/howardjmn/frontend-nanodegree-mobile-portfolio/master/index.html).  Click 'Cam's Pizzeria' to view the Pizza page.
+View the main page in your browser [here](https://rawgit.com/howardjmn/frontend-nanodegree-mobile-portfolio/master/index.html).  Click "Cam's Pizzeria" to view the Pizza page.
 
 ## My Solutions
 
