@@ -564,17 +564,19 @@ function updatePositions()
   window.performance.mark("mark_start_frame");
 
   // Optimized with transform3d and took some objects out from the loop
-  var phase = Math.sin(document.body.scrollTop / 1250);
+  var phase;
   for (var i = 0; i < items.length; i++)
   {
+    phase = Math.sin(document.body.scrollTop / 1250);
     items[i].style.transform = 'translate3d(' + ((i % 8) * 256 + 100 * (phase + (i % 5))) + 'px, 0px, 0px)';
   }
 
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
+  var timesToUpdatePosition;
   if (frame % 10 === 0)
   {
-    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
+    timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
     logAverageFrame(timesToUpdatePosition);
   }
   ticking = false;
@@ -588,10 +590,15 @@ window.addEventListener('scroll', onScroll, false);
 document.addEventListener('DOMContentLoaded',
   window.requestAnimationFrame(function()
 {
-  var cols = 8;
+  var screenWidth = screen.availWidth;
+  var screenHeight = screen.availHeight;
   var s = 256;
+  var cols = screenWidth / s;
+  var rows = screenHeight / s;
+  var numberOfPizzas = Math.ceil(cols * rows);
   var elem;
-  for (var i = 0; i < 32; i++)
+
+  for (var i = 0; i < numberOfPizzas; i++)
   {
     elem = document.createElement('img');
     elem.classList.add('mover');
